@@ -261,8 +261,8 @@
     <div class="hero-overlay"></div> <!-- Overlay per migliorare la leggibilità del testo -->
     <div class="hero-content">
         <h1>Dove ogni spazio diventa casa</h1>
-        <p>Scopri i nostri progetti e trasformazioni</p>
-        <a href="#progetti" class="cta-btn">Esplora i progetti</a> <!-- Pulsante di Call to Action -->
+        <!--  <p>Scopri i nostri progetti e trasformazioni</p> -->
+       <!--  <a href="#progetti" class="cta-btn">Esplora i progetti</a> --> <!-- Pulsante di Call to Action -->
     </div>
 </section>
 
@@ -277,8 +277,9 @@
     background-size: cover;
     background-position: center;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start; /* Allinea a sinistra */
+
     overflow: hidden;
 }
 
@@ -299,11 +300,10 @@
     z-index: 2; /* Porta il contenuto sopra l'overlay */
     text-align: left; /* Allinea tutto il contenuto a sinistra */
     color: #fff;
-    padding: 0 20px;
-    max-width: 900px; /* Limita la larghezza massima per il testo */
+    padding: 0;
+    max-width: none; /* Limita la larghezza massima per il testo */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start; /* Allinea gli elementi verso sinistra */
     padding-left: 20px; /* Aggiungi un po' di padding a sinistra */
     margin-top: -600px; /* Sollevato ancora di più */
@@ -311,12 +311,11 @@
 
 /* Titolo */
 .hero-content h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     margin: 0;
     font-weight: medium;
     line-height: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+      letter-spacing: 2px;
     animation: fadeIn 2s ease-in-out; /* Animazione di apparizione */
     align-items: flex-start;
     margin-bottom: 20px; /* Spazio tra il titolo e il sottotitolo */
