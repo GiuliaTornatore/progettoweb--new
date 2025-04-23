@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>GGM Design</title>
+    
+</head>
+
+
+<body>
+<!-- Header con logo e menù -->
+<header class="bg-black bg-opacity-50 py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <div>
+        <img src="/img/logo.png" alt="LOGO" class="img-fluid" style="height: 50px;">
+        
+      </div>
+  
+      <!-- Navigazione -->
+      <ul class="d-flex align-items-center m-0 list-unstyled">
+        <!-- Dropdown Ambienti -->
+        <li class="mx-3 dropdown">
+          <a href="#" class="text-decoration-none text-white dropdown-toggle"
+             id="ambientiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ambienti
+            <!-- Icona per Ambienti -->
+            <i class="bi bi-house-door ms-2" style="font-size: 1.3rem;"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="ambientiDropdown">
+            <li><a class="dropdown-item" href="cucine.html"><i class="bi bi-house-door me-2"></i>Cucina</a></li>
+            <li><a class="dropdown-item" href="salotti.html"><i class="bi bi-house-door me-2"></i>Soggiorno</a></li>
+            <li><a class="dropdown-item" href="saladapranzo.html"><i class="bi bi-house-door me-2"></i>Sala da pranzo</a></li>
+            <li><a class="dropdown-item" href="camera.html"><i class="bi bi-house-door me-2"></i>Camera da letto</a></li>
+            <li><a class="dropdown-item" href="cameretta.html"><i class="bi bi-house-door me-2"></i>Cameretta</a></li>
+            <li><a class="dropdown-item" href="bagno.html"><i class="bi bi-house-door me-2"></i>Bagno</a></li>
+          </ul>
+        </li>
+  
+        <!-- Dropdown Stili -->
+        <li class="mx-3 dropdown">
+          <a href="#" class="text-decoration-none text-white dropdown-toggle"
+             id="stiliDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Stili
+            <!-- Icona per Stili -->
+            <i class="bi bi-paint-bucket ms-2" style="font-size: 1.3rem;"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="stiliDropdown">
+            <li><a class="dropdown-item" href="classico.html"><i class="bi bi-paint-bucket me-2"></i>Stile classico</a></li>
+            <li><a class="dropdown-item" href="minimal.html"><i class="bi bi-paint-bucket me-2"></i>Stile minimal</a></li>
+            <li><a class="dropdown-item" href="industriale.html"><i class="bi bi-paint-bucket me-2"></i>Stile industriale</a></li>
+            <li><a class="dropdown-item" href="contemporaneo.html"><i class="bi bi-paint-bucket me-2"></i>Stile contemporaneo</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+ 
+ <style>
+    /* Mostra il menu a tendina quando il cursore è sopra */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Nascondi il menu a tendina quando non è sopra il dropdown */
+    .dropdown-menu {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Opacità e visibilità per transizioni più fluide */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+    }
+
+    .dropdown-item {
+        padding: 10px 20px;
+    }
+
+    .dropdown-item:hover {
+        background-color: #444;
+    }
+    
+  /* Responsive per mobile */
+  @media (max-width: 768px) {
+    .menu-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding-left: 20px;
+    }
+
+    .dropdown-toggle {
+      font-size: 20px;
+    }
+
+    .dropdown-menu {
+      position: static !important;
+      float: none;
+      box-shadow: none;
+      display: block;
+      background-color: transparent;
+      padding: 0;
+    }
+
+    .dropdown-menu a {
+      font-size: 16px;
+      color: white !important;
+      padding-left: 10px;
+      background-color: transparent;
+    }
+
+    .dropdown-menu a:hover {
+      color: black !important;
+      background-color: #ccc !important;
+    }
+  }
+</style>
+
+<!-- JavaScript per il click del menu (attiva la visibilità al click) -->
+<script>
+    // Funzionalità per aprire/chiudere il menu a tendina su click per dispositivi mobili
+    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(event) {
+            // Impedisce la chiusura immediata del menu quando si clicca dentro
+            event.stopPropagation();
+            // Aggiunge o rimuove la classe 'open' al dropdown per mostrare/nascondere il menu
+            this.classList.toggle('open');
+        });
+    });
+
+    // Chiude il menu se si clicca al di fuori di esso
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                dropdown.classList.remove('open');
+            });
+        }
+    });
+</script>
+
+<!-- JavaScript per il click del menu (attiva la visibilità al click) -->
+<script>
+    // Funzionalità per aprire/chiudere il menu a tendina su click per dispositivi mobili
+    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(event) {
+            // Impedisce la chiusura immediata del menu quando si clicca dentro
+            event.stopPropagation();
+            // Aggiunge o rimuove la classe 'open' al dropdown per mostrare/nascondere il menu
+            this.classList.toggle('open');
+        });
+    });
+
+    // Chiude il menu se si clicca al di fuori di esso
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                dropdown.classList.remove('open');
+            });
+        }
+    });
+</script>
+  <!-- Bootstrap JS (fondamentale per i dropdown) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Aggiungi gli abbellimenti visivi -->
+  <style>
+    /* Per i link del menu (bianco con transizione di colore al passaggio del mouse) */
+    .dropdown-toggle {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+  
+    /* Effetto hover per il link principale */
+    .dropdown-toggle:hover {
+      color: #a0c1be;
+      transform: scale(1.05);
+    }
+  
+    /* Personalizzazione delle voci del menu a tendina */
+    .dropdown-menu {
+      background-color: #1c3a3a;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .dropdown-item {
+      color: #ffffff;
+      font-size: 1rem;
+      padding: 12px 20px;
+      text-transform: capitalize;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    /* Cambia colore delle voci al passaggio del mouse */
+    .dropdown-item:hover {
+      background-color: #5E7A7C;
+      color: #ffffff;
+    }
+  
+    /* Aggiungi l'animazione di apertura del dropdown */
+    .dropdown-menu.show {
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+  
+    /* Effetto di apparizione fluido */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  
+    /* Dropdown per mobile (hamburger) - Navbar Mobile */
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        background-color: #2c4e48;
+      }
+      .dropdown-item {
+        font-size: 1.1rem;
+      }
+    }
+  
+    /* Icone dentro il menu */
+    .bi {
+      color: white;
+      transition: color 0.3s ease;
+    }
+  
+    .dropdown-item i {
+      font-size: 1.2rem;
+    }
+  
+    /* Icone al passaggio del mouse */
+    .dropdown-item:hover i {
+      color: #a0c1be;
+    }
+  </style>
+  
+<!-- Header immagine -->
+<!-- Sezione Home con immagine a schermo intero -->
+<section class="hero-home">
+    <div class="hero-overlay"></div> <!-- Overlay per migliorare la leggibilità del testo -->
+    <div class="hero-content">
+        <h1>Dove ogni spazio diventa casa</h1>
+        <p>Scopri i nostri progetti e trasformazioni</p>
+        <a href="#progetti" class="cta-btn">Esplora i progetti</a> <!-- Pulsante di Call to Action -->
+    </div>
+</section>
+
+<!-- CSS incluso direttamente nel codice -->
+<style>
+ /* Sezione Hero */
+.hero-home {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Occupare tutta l'altezza della finestra */
+    background-image: url('/img/HOME\ PAGE\ IMM/home-copertina.jpg'); /* Sostituisci con il tuo percorso immagine */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Overlay semitrasparente per migliorare la visibilità del testo */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay scuro (trasparente) */
+    z-index: 1;
+}
+
+/* Contenuto del testo */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Porta il contenuto sopra l'overlay */
+    text-align: left; /* Allinea tutto il contenuto a sinistra */
+    color: #fff;
+    padding: 0 20px;
+    max-width: 900px; /* Limita la larghezza massima per il testo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Allinea gli elementi verso sinistra */
+    padding-left: 20px; /* Aggiungi un po' di padding a sinistra */
+    margin-top: -600px; /* Sollevato ancora di più */
+}
+
+/* Titolo */
+.hero-content h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: medium;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease-in-out; /* Animazione di apparizione */
+    align-items: flex-start;
+    margin-bottom: 20px; /* Spazio tra il titolo e il sottotitolo */
+}
+
+/* Sottotitolo */
+.hero-content p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    margin-left: 0; /* Elimina il margine sinistro */
+    font-weight: small;
+    color: #d1d1d1;
+    animation: fadeIn 3s ease-in-out; /* Animazione di apparizione */
+}
+
+/* Pulsante CTA */
+.cta-btn {
+    display: inline-block;
+    margin-top: 30px; /* Spazio sopra il pulsante */
+    padding: 15px 20px;
+    background-color: #5e7a7c;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #4b6360;
+    transform: translateY(-5px); /* Effetto hover */
+}
+
+
+    @keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+    /* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Allinea a sinistra */
+        padding-right: 50px; 
+    }
+
+    .hero-content h1 {
+        font-size: 1rem; /* Modifica la dimensione del titolo se necessario */
+        text-align: left; /* Assicurati che il titolo sia a sinistra */
+        margin-bottom: 15px; /* Distanza inferiore per una migliore spaziatura */
+        font-weight: medium;
+    }
+    
+    .hero-content p {
+        font-size: 0.9rem; /* Aumenta leggermente la dimensione del paragrafo per leggibilità */
+        text-align: left; /* Allinea il paragrafo a sinistra */
+        margin-bottom: 20px; /* Distanza inferiore per separare il testo dalla CTA */
+        font-weight: small;
+
+    }
+    
+    .cta-btn {
+        padding: 12px 20px;
+        font-size: 1rem; /* Dimensione della CTA più leggibile su mobile */
+        margin-bottom: 20px; /* Mantieni il margine inferiore */
+        text-align: left; /* Allinea il bottone a sinistra */
+        display: inline-block; /* Assicura che il bottone sia inline per allinearlo correttamente */
+    }
+}
+</style>
+
+    <main>
+<!-- Sezione Guida agli Ambienti -->
+<section class="guida-ambienti py-5 mt-5 fade-in" aria-labelledby="titolo-guida">
+    <div class="container d-flex flex-column flex-md-row align-items-center">
+      <div class="content px-4 px-md-5">
+        <h2 id="titolo-guida" class="text-white d-flex align-items-center gap-2">
+          <span class="icon">🎨</span> GGM Design, la tua guida agli ambienti
+        </h2>
+        <p class="mt-4 text-light">
+          GGM Design è la community che approfondisce l’interior design, l'arte di trasformare gli spazi interni in ambienti funzionali ed esteticamente piacevoli, 
+          combinando elementi come colori, materiali, illuminazione e arredi, per rispondere alle esigenze e ai desideri di chi li vive o li utilizza.
+        </p>
+        <p class="text-light mt-3">
+          Ti mostriamo le migliori ispirazioni per i tuoi ambienti interni ed esterni, con soluzioni efficaci, spunti creativi, approfondimenti e consigli di stile e tendenze. 
+          Ma prima, vogliamo offrirti una spiegazione chiara su cos’è l’Interior Design, a cosa serve e chi se ne occupa.
+        </p>
+  
+        <!-- Pulsante -->
+        <a href="/html/interior.html" class="btn-glow mt-4">Scopri di più</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- STILE -->
+  <style>
+    .guida-ambienti {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.4s ease-in-out;
+    }
+  
+    .guida-ambienti h2 {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.6),
+                   0 0 15px rgba(255, 255, 255, 0.4);
+      font-weight: 600;
+      font-size: 2rem;
+    }
+  
+    .guida-ambienti .icon {
+      font-size: 1.8rem;
+      margin-right: 0.5rem;
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.5));
+    }
+  
+    .guida-ambienti p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+  
+    .btn-glow {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: #00ffd5;
+      color: #000;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 213, 0.5), 0 0 20px rgba(0, 255, 213, 0.4);
+    }
+  
+    .btn-glow:hover {
+      background-color: #00ccb0;
+      box-shadow: 0 0 15px rgba(0, 255, 213, 0.7), 0 0 30px rgba(0, 255, 213, 0.6);
+      transform: scale(1.05);
+    }
+  
+    /* Effetto fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.2s;
+    }
+  
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  
+    @media (max-width: 768px) {
+      .guida-ambienti {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+  
+  
+<!-- Sezione Design per ogni stile -->
+<section class="design-x-stile text-white" style="background-color: #f4f4f4; padding: 60px 0 0 0; text-align: center;">
+  <style>
+      /* Codice elegante */
+      .design-x-stile .titolo-mini {
+          font-size: 1.1rem;
+          color: #666666;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 10px;
+          font-weight: 600;
+      }
+
+      .design-x-stile .titolo-stile {
+          font-size: 2.5rem;
+          margin-bottom: 50px;
+          font-weight: 700;
+          color: #333333; /* Colore più elegante per il titolo */
+      }
+
+      .design-x-stile .stili-wrapper {
+          display: flex;
+          justify-content: center;
+          gap: 40px;
+          flex-wrap: wrap;
+          padding: 0 30px;
+          align-items: center;
+      }
+
+      .design-x-stile .stile-box {
+          width: 250px;
+          height: 300px;
+          text-align: center;
+          margin-bottom: 40px;
+          border: 1px solid #dcdcdc; /* Bordi sottili e chiari */
+          border-radius: 15px;
+          box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra leggera per un effetto elegante */
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          background-color: #ffffff; /* Sfondo bianco per ogni card */
+      }
+
+      /* Hover per la card */
+      .design-x-stile .stile-box:hover {
+          transform: translateY(-5px); /* Effetto di sollevamento delicato */
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Ombra più morbida */
+      }
+
+      .design-x-stile .img-stile {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+          transition: transform 0.3s ease;
+      }
+
+      /* Hover sulle immagini */
+      .design-x-stile .img-stile:hover {
+          transform: scale(1.05); /* Zoom leggero per effetto visivo elegante */
+      }
+
+      .design-x-stile .stile-link {
+          margin-top: 15px;
+          display: inline-block;
+          font-size: 1rem;
+          color: #444444; /* Colore del testo più elegante */
+          text-decoration: none;
+          transition: color 0.3s, background-color 0.3s;
+          padding: 8px 16px;
+          background-color: #e0e0e0; /* Colore di sfondo elegante per il link */
+          border-radius: 20px;
+          font-weight: 500;
+      }
+
+      .design-x-stile .stile-link:hover {
+          color: #ffffff;
+          background-color: #777777; /* Sfondo scuro al passaggio del mouse */
+      }
+
+/* Media Query Tablet */
+@media screen and (max-width: 768px) {
+    .design-x-stile .stili-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; /* Distribuire le card in modo equo */
+        gap: 10px; /* Aggiungere un po' di spazio tra le card */
+        margin-top: 10px;
+    }
+
+    .design-x-stile .stile-box {
+        width: 48%; /* Le card occupano il 48% della larghezza per tablet */
+        height: 180px; /* Altezza ridotta per ogni box */
+    }
+
+    .design-x-stile .img-stile {
+        height: 120px; /* Altezza delle immagini ridotta per tablet */
+        width: 100%; /* Immagine che occupa tutta la larghezza */
+    }
+
+    .design-x-stile .stile-link {
+        font-size: 0.9rem; /* Font più piccolo */
+        padding: 5px 10px; /* Ridurre il padding per un bottone più piccolo */
+    }
+}
+
+/* Media Query Mobile */
+@media screen and (max-width: 480px) {
+    .design-x-stile .stili-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Centrato per mobile */
+        gap: 10px; /* Spazio tra le card */
+    }
+
+    .design-x-stile .stile-box {
+        width: 90%; /* Larghezza delle card su mobile, occupa quasi tutta la larghezza */
+        height: 150px; /* Altezza ridotta per ogni box */
+    }
+
+    .design-x-stile .img-stile {
+        height: 90px; /* Altezza delle immagini ridotta per mobile */
+        width: 100%; /* Immagine che occupa tutta la larghezza */
+    }
+
+    .design-x-stile .stile-link {
+        font-size: 0.8rem; /* Font più piccolo per mobile */
+        padding: 4px 8px; /* Ancora meno padding */
+    }
+}
+
+
+  </style>
+
+  <div class="container">
+      <h6 class="titolo-mini">GGM Design</h6>
+      <h2 class="titolo-stile">Design per ogni stile</h2>
+
+      <div class="stili-wrapper">
+          <div class="stile-box">
+              <img src="/img/HOME PAGE IMM/icona-stile-classico.png" alt="Stile classico" class="img-stile">
+              <a href="classico.html" class="stile-link">Stile classico</a>
+          </div>
+          <div class="stile-box">
+              <img src="/img/HOME PAGE IMM/icona-stile-industriale.jpg" alt="Stile industriale" class="img-stile">
+              <a href="industriale.html" class="stile-link">Stile industriale</a>
+          </div>
+          <div class="stile-box">
+              <img src="/img/HOME PAGE IMM/icona-stile-minimal.jpeg" alt="Stile minimal" class="img-stile">
+              <a href="minimal.html" class="stile-link">Stile minimal</a>
+          </div>
+          <div class="stile-box">
+              <img src="/img/HOME PAGE IMM/icona-stile-contemporaneo.jpg" alt="Stile contemporaneo" class="img-stile">
+              <a href="contemporaneo.html" class="stile-link">Stile contemporaneo</a>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Sezione successiva (ambienti sotto) -->
+<section class="ambienti-section" style="background-color: #f4f4f4; padding: 60px 0;">
+  <div class="container">
+      <!-- Contenuto della sezione successiva -->
+  </div>
+</section>
+
+
+
+
+<!-- Sezione Ambienti -->
+<section class="ambienti mt-5" style="text-align: center;">
+    <style>
+      .ambienti h2 {
+        font-size: 2.2rem;
+        color: #2c4e48;
+        margin-bottom: 40px;
+      }
+  
+      .ambienti-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+  
+      .ambiente-box {
+        width: 150px;
+        text-align: center;
+        background-color: #EDEAEA;
+        border-radius: 8px;
+        transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+  
+      .ambiente-box:hover {
+        background-color: #d6d6d6;
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+  
+      .ambiente-box a {
+        display: block;
+        color: #000;
+        text-decoration: none;
+        padding: 15px;
+      }
+  
+      .ambiente-box img {
+        width: 100px;
+        height: 90px;
+        object-fit: contain;
+        margin-bottom: 10px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+  
+      .ambiente-box:hover img {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+  
+      .ambiente-box a:hover {
+        color: #5E7A7C;
+      }
+  
+      .ambiente-box p {
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+  
+      /* 🌟 Media Query per tablet */
+      @media screen and (max-width: 768px) {
+        .ambiente-box {
+          width: 45%;
+        }
+  
+        .ambienti h2 {
+          font-size: 1.8rem;
+        }
+  
+        .ambiente-box img {
+          width: 80px;
+          height: 75px;
+        }
+  
+        .ambiente-box a {
+          font-size: 0.95rem;
+        }
+      }
+  
+      /* 🌸 Media Query per smartphone */
+      @media screen and (max-width: 480px) {
+        .ambiente-box {
+          width: 80%;
+        }
+  
+        .ambienti h2 {
+          font-size: 1.6rem;
+        }
+  
+        .ambienti-wrapper {
+          gap: 20px;
+        }
+  
+        .ambiente-box img {
+          width: 70px;
+          height: 65px;
+        }
+  
+        .ambiente-box a {
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+      }
+    </style>
+  
+    <div class="container">
+      <h2>Ambienti</h2>
+      <div class="ambienti-wrapper">
+        <div class="ambiente-box">
+          <a href="bagno.html">
+            <img src="/img/HOME PAGE IMM/icona-bagno.png" alt="Bagno">
+            <p>Bagno</p>
+          </a>
+        </div>
+        <div class="ambiente-box">
+          <a href="camera.html">
+            <img src="/img/HOME PAGE IMM/icona-camera.png" alt="Camera da letto">
+            <p>Camera da letto</p>
+          </a>
+        </div>
+        <div class="ambiente-box">
+          <a href="cameretta.html">
+            <img src="/img/HOME PAGE IMM/icona-cameretta.png" alt="Cameretta">
+            <p>Cameretta</p>
+          </a>
+        </div>
+        <div class="ambiente-box">
+          <a href="cucine.html">
+            <img src="/img/HOME PAGE IMM/icona-cucina.png" alt="Cucina">
+            <p>Cucina</p>
+          </a>
+        </div>
+        <div class="ambiente-box">
+          <a href="saladapranzo.html">
+            <img src="/img/HOME PAGE IMM/icona-salapranzo.png" alt="Sala da pranzo">
+            <p>Sala da pranzo</p>
+          </a>
+        </div>
+        <div class="ambiente-box">
+          <a href="salotti.html">
+            <img src="/img/HOME PAGE IMM/icona-salotto.png" alt="Soggiorno">
+            <p>Soggiorno</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+<!-- Sezione Ambienti -->
+<div class="ambienti py-5">
+    <section class="container">
+      <h2 class="text-center mb-5">Ambienti in evidenza</h2>
+  
+      <div class="ambienti-grid">
+        <!-- CARD 1 -->
+        <div class="card-ambiente">
+          <div class="img-container">
+            <img src="/img/HOME PAGE IMM/cucina-provenza.jpeg" alt="Cucina Provenza">
+          </div>
+          <div class="ambiente-info">
+            <h3>Cucina Provenza</h3>
+            <p>
+              Le cucine classiche uniscono semplicità e intramontabile eleganza, non rinunciano alle comodità, 
+              agli elettrodomestici di ultima generazione e ai pezzi di grande design, creando un ambiente di grande effetto.
+            </p>
+            <a href="cucinaclassica.html" class="btn-progetto">Progetto completo →</a>
+          </div>
+        </div>
+  
+        <!-- CARD 2 -->
+        <div class="card-ambiente">
+          <div class="img-container">
+            <img src="/img/STILE CLASSICO/Salotto 6.jpeg" alt="Salotto Modigliani">
+          </div>
+          <div class="ambiente-info">
+            <h3>Salotto Modigliani</h3>
+            <p>
+              Uno spazio luminoso e accogliente, dai toni neutri, in cui fa da protagonista una libreria a muro in legno, classica e sofisticata.
+              Un luogo ideale dove bellezza incontra funzionalità, in un equilibrio perfetto di design.
+            </p>
+            <a href="salottoModigliani.html" class="btn-progetto">Progetto completo →</a>
+          </div>
+        </div>
+  
+        <!-- CARD 3 -->
+        <div class="card-ambiente">
+          <div class="img-container">
+            <img src="/img/STILE CLASSICO/Sala da pranzo 2.jpeg" alt="Sala da pranzo color vintage">
+          </div>
+          <div class="ambiente-info">
+            <h3>Sala da pranzo color vintage</h3>
+            <p>
+              Una sala ampia e luminosa, perfetta per accogliere ospiti. 
+              Un open space classico, colorato e molto raffinato, in cui i pezzi vintage si sposano perfettamente con gli arredi.  
+            </p>
+            <a href="saladapranzoclassica.html" class="btn-progetto">Progetto completo →</a>
+          </div>
+        </div>
+  
+        <!-- CARD 4 -->
+        <div class="card-ambiente">
+          <div class="img-container">
+            <img src="/img/STILE CLASSICO/Camera da letto 1.jpeg" alt="Camera da letto mosaico blu">
+          </div>
+          <div class="ambiente-info">
+            <h3>Camera da letto mosaico blu</h3>
+            <p>
+              Una camera raffinata, con rimandi all’antico, i mobili in legno massello, la posa di un mosaico blu e giallo, rivestimento del letto in velluto blu, una chicca di eleganza senza tempo.
+            </p>
+            <a href="cameraclassica.html" class="btn-progetto">Progetto completo →</a>
+          </div>
+        </div>
+  
+        <!-- CARD 5 -->
+        <div class="card-ambiente">
+          <div class="img-container">
+            <img src="/img/STILE CLASSICO/Cameretta 2.1.jpeg" alt="Cameretta Camilla">
+          </div>
+          <div class="ambiente-info">
+            <h3>Cameretta Camilla</h3>
+            <p>
+              Una cameretta soppalcata, con toni pastello. 
+              Una parete con trama interamente dipinta a mano fa da protagonista, rendendo l’ambiente caldo e accogliente, perfetto per un neonato e comodo per i neogenitori.
+            </p>
+            <a href="camerettaclassica.html" class="btn-progetto">Progetto completo →</a>
+          </div>
+        </div>
+  
+        <!-- CARD 6 -->
+        <div class="card-ambiente">
+          <div class="img-container">
+            <img src="/img/STILE CLASSICO/Bagno 1.jpeg" alt="Bagno ciliegio">
+          </div>
+          <div class="ambiente-info">
+            <h3>Bagno ciliegio</h3>
+            <p>
+              Un bagno elegantemente rifinito, con marmi bianchi e lussuosi, alternati a carta da parati sui toni champagne. 
+              Al centro una grande vasca idromassaggio, perfetta per concedersi momenti di puro relax. 
+            </p>
+            <a href="bagnoclassico.html" class="btn-progetto">Progetto completo →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+ 
+  <style>
+    .ambienti {
+      background-color: #808080; /* Grigio più chiaro */
+      max-width: 100%;
+      padding: 60px 0;
+    }
+  
+    .ambienti h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #f7f7f7; /* Bianco più caldo per risaltare */
+      margin-bottom: 40px;
+    }
+  
+    .ambienti-grid {
+      display: grid;
+      gap: 40px;
+      grid-template-columns: 1fr; /* Una sola colonna per ogni card */
+    }
+  
+    .card-ambiente {
+      display: flex;
+      flex-direction: row; /* Immagine a sinistra e testo a destra */
+      background-color: #5c5c5c; /* Un grigio più chiaro per le card */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px rgba(155, 155, 155, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+  
+    .card-ambiente:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+    }
+  
+    .img-container {
+      width: 50%; /* L'immagine occupa il 50% della larghezza */
+      overflow: hidden; /* Per evitare che l'immagine fuoriesca */
+    }
+  
+    .img-container img {
+      width: 100%;
+      height: 300px; /* Altezza fissa per l'immagine */
+      object-fit: cover;
+      border-right: 1px solid #444; /* Separatore tra immagine e testo */
+    }
+  
+    .ambiente-info {
+      padding: 20px;
+      width: 50%; /* Il testo occupa il restante 50% */
+      text-align: left; /* Allineamento del testo a sinistra */
+    }
+  
+    .ambiente-info h3 {
+      font-size: 1.8rem;
+      color: #e0e0e0;
+      margin-bottom: 15px;
+    }
+  
+    .ambiente-info p {
+      font-size: 1rem;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+  
+    .btn-progetto {
+      padding: 10px 20px;
+      background-color: #7da39c;
+      color: #333333;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+  
+    .btn-progetto:hover {
+      background-color: #678983;
+      transform: scale(1.05);
+    }
+
+    .ambiente-box img {
+    opacity: 0.5;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.ambiente-box img.loaded {
+    opacity: 1;
+}
+
+  
+    /* Layout Desktop e Tablet: Card una sotto l'altra, immagine a sinistra, testo a destra */
+    @media (min-width: 1024px) {
+      .ambienti-grid {
+        grid-template-columns: 1fr; /* Una sola colonna per le card */
+      }
+  
+      .card-ambiente {
+        display: flex;
+        flex-direction: row; /* Immagine a sinistra, testo a destra */
+      }
+  
+      .img-container img {
+        height: 300px;
+      }
+  
+      .ambiente-info {
+        padding: 20px;
+      }
+    }
+  
+    @media (min-width: 1024px) {
+  .card-ambiente {
+    flex-direction: row; /* Immagine a sinistra, testo a destra */
+    align-items: center;
+  }
+
+  .img-container {
+    width: 50%; /* Occupa metà della card */
+    max-height: 250px; /* Mantiene un'altezza proporzionata */
+  }
+
+  .ambiente-info {
+    width: 50%; /* Il testo occuperà l'altra metà */
+    text-align: left; /* Allinea il testo a sinistra */
+    padding: 20px; /* Aggiungi padding per separare il testo dalle immagini */
+  }
+
+  .ambiente-info h3 {
+    font-size: 0.8rem; /* Ridurre la dimensione del titolo */
+    color: #e0e0e0; /* Colore del titolo */
+    margin-bottom: 10px; /* Distanza tra il titolo e il paragrafo */
+  }
+
+  .ambiente-info p {
+    font-size: 0.8rem; /* Testo descrittivo in una dimensione leggibile */
+    color: #ccc; /* Colore del testo */
+    margin-bottom: 20px; /* Margine tra il testo e il bottone */
+  }
+
+  .btn-progetto {
+    font-size: 0.8rem; /* Mantieni la dimensione del bottone proporzionata */
+    padding: 10px 20px;
+    background-color: #7da39c;
+    color: #333333;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-progetto:hover {
+    background-color: #678983;
+    transform: scale(1.05);
+  }
+}
+
+  </style>
+  
+
+  
+  
+  <footer class="footer">
+    <div class="footer-container">
+        <!-- Sezione Spazi Belli -->
+        <div class="footer-section">
+            <img src="/img/logo.png" alt="Logo GGM Design" class="logo-small">
+            <ul>
+              <li><a href="privaci.html">Privacy</a></li>
+              <li><a href="termini.html">Condizioni</a></li>
+            </ul>
+        </div>
+
+        <!-- Sezione Esplora -->
+        <div class="footer-section">
+            <h4>GGM Design</h4>
+            <ul>
+                <li><a href="index.html" aria-label="Chi siamo">Chi siamo</a></li>
+            </ul>
+        </div>
+
+        <!-- Sezione Per i professionisti -->
+        <div class="footer-section">
+            <h4>Ambienti</h4>
+            <ul>
+                <li><a href="cucine.html" aria-label="Cucina">Cucina</a></li>
+                <li><a href="salotti.html" aria-label="Soggiorno">Soggiorno</a></li>
+                <li><a href="saladapranzo.html" aria-label="Sala da pranzo">Sala da pranzo</a></li>
+                <li><a href="camera.html" aria-label="Camera da letto">Camera da letto</a></li>
+                <li><a href="cameretta.html" aria-label="Cameretta">Cameretta</a></li>
+                <li><a href="bagno.html" aria-label="Bagno">Bagno</a></li>
+            </ul>
+        </div>
+
+        <!-- Sezione Per i brand -->
+        <div class="footer-section">
+            <h4>Stili</h4>
+            <ul>
+                <li><a href="classico.html" aria-label="Stile classico">Stile classico</a></li>
+                <li><a href="contemporaneo.html" aria-label="Stile contemporaneo">Stile contemporaneo</a></li>
+                <li><a href="minimal.html" aria-label="Stile minimal">Stile minimal</a></li>
+                <li><a href="industriale.html" aria-label="Stile industriale">Stile industriale</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2025 GGM Design</p>
+        <ul>
+            <li><a href="#" aria-label="Instagram">Instagram</a></li>
+            <li><a href="#" aria-label="TikTok">TikTok</a></li>
+        </ul>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+<!-- CSS per il footer -->
+<style>
+    .footer {
+        background-color: #333333;
+        color: #f7f7f7;
+        padding: 40px 0;
+    }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer-section {
+        flex: 1;
+        margin: 10px;
+    }
+
+    .footer-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        color: #f7f7f7;
+    }
+
+    .footer-section ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+        color: #b0b0b0;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .footer-bottom p {
+        font-size: 1rem;
+        color: #ddd;
+    }
+
+    .footer-bottom ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .footer-bottom ul li {
+        margin: 0;
+    }
+
+    .footer-bottom ul li a {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 1.1rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-bottom ul li a:hover {
+        color: #b0b0b0;
+    }
+</style>

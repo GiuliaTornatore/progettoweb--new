@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/stile-classico.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>GGM Design</title>
+
+    <style>
+      .logo-hover {
+     transition: filter 0.3s ease;
+    filter: brightness(0) invert(1); /* Logo bianco iniziale */
+}
+
+.logo-hover:hover {
+    filter: brightness(0); /* Logo nero al passaggio */
+} 
+@media (max-width: 768px) {
+  .logo-hover {
+    height: 100px !important;
+    margin-left: 10px;
+  }
+}
+    </style>
+</head>
+
+
+
+<body>
+
+<!-- Header con logo e menù -->
+<header class="bg-black bg-opacity-50 py-3">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Logo -->
+    <div>
+      <img src="/img/logo.png" alt="LOGO" class="img-fluid" style="height: 50px;">
+      
+    </div>
+
+    <!-- Navigazione -->
+    <ul class="d-flex align-items-center m-0 list-unstyled">
+      <!-- Dropdown Ambienti -->
+      <li class="mx-3 dropdown">
+        <a href="#" class="text-decoration-none text-white dropdown-toggle"
+           id="ambientiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Ambienti
+          <!-- Icona per Ambienti -->
+          <i class="bi bi-house-door ms-2" style="font-size: 1.3rem;"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="ambientiDropdown">
+          <li><a class="dropdown-item" href="cucine.html"><i class="bi bi-house-door me-2"></i>Cucina</a></li>
+          <li><a class="dropdown-item" href="salotti.html"><i class="bi bi-house-door me-2"></i>Soggiorno</a></li>
+          <li><a class="dropdown-item" href="saladapranzo.html"><i class="bi bi-house-door me-2"></i>Sala da pranzo</a></li>
+          <li><a class="dropdown-item" href="camera.html"><i class="bi bi-house-door me-2"></i>Camera da letto</a></li>
+          <li><a class="dropdown-item" href="cameretta.html"><i class="bi bi-house-door me-2"></i>Cameretta</a></li>
+          <li><a class="dropdown-item" href="bagno.html"><i class="bi bi-house-door me-2"></i>Bagno</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown Stili -->
+      <li class="mx-3 dropdown">
+        <a href="#" class="text-decoration-none text-white dropdown-toggle"
+           id="stiliDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Stili
+          <!-- Icona per Stili -->
+          <i class="bi bi-paint-bucket ms-2" style="font-size: 1.3rem;"></i>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="stiliDropdown">
+          <li><a class="dropdown-item" href="classico.html"><i class="bi bi-paint-bucket me-2"></i>Stile classico</a></li>
+          <li><a class="dropdown-item" href="minimal.html"><i class="bi bi-paint-bucket me-2"></i>Stile minimal</a></li>
+          <li><a class="dropdown-item" href="industriale.html"><i class="bi bi-paint-bucket me-2"></i>Stile industriale</a></li>
+          <li><a class="dropdown-item" href="contemporaneo.html"><i class="bi bi-paint-bucket me-2"></i>Stile contemporaneo</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<style>
+  /* Mostra il menu a tendina quando il cursore è sopra */
+  .dropdown:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      visibility: visible;
+  }
+
+  /* Nascondi il menu a tendina quando non è sopra il dropdown */
+  .dropdown-menu {
+      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  /* Opacità e visibilità per transizioni più fluide */
+  .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      font-size: 1rem;
+  }
+
+  .dropdown-item {
+      padding: 10px 20px;
+  }
+
+  .dropdown-item:hover {
+      background-color: #444;
+  }
+  
+/* Responsive per mobile */
+@media (max-width: 768px) {
+  .menu-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 20px;
+  }
+
+  .dropdown-toggle {
+    font-size: 20px;
+  }
+
+  .dropdown-menu {
+    position: static !important;
+    float: none;
+    box-shadow: none;
+    display: block;
+    background-color: transparent;
+    padding: 0;
+  }
+
+  .dropdown-menu a {
+    font-size: 16px;
+    color: white !important;
+    padding-left: 10px;
+    background-color: transparent;
+  }
+
+  .dropdown-menu a:hover {
+    color: black !important;
+    background-color: #ccc !important;
+  }
+}
+</style>
+
+<!-- JavaScript per il click del menu (attiva la visibilità al click) -->
+<script>
+  // Funzionalità per aprire/chiudere il menu a tendina su click per dispositivi mobili
+  document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+      dropdown.addEventListener('click', function(event) {
+          // Impedisce la chiusura immediata del menu quando si clicca dentro
+          event.stopPropagation();
+          // Aggiunge o rimuove la classe 'open' al dropdown per mostrare/nascondere il menu
+          this.classList.toggle('open');
+      });
+  });
+
+  // Chiude il menu se si clicca al di fuori di esso
+  document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+              dropdown.classList.remove('open');
+          });
+      }
+  });
+</script>
+
+<!-- JavaScript per il click del menu (attiva la visibilità al click) -->
+<script>
+  // Funzionalità per aprire/chiudere il menu a tendina su click per dispositivi mobili
+  document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+      dropdown.addEventListener('click', function(event) {
+          // Impedisce la chiusura immediata del menu quando si clicca dentro
+          event.stopPropagation();
+          // Aggiunge o rimuove la classe 'open' al dropdown per mostrare/nascondere il menu
+          this.classList.toggle('open');
+      });
+  });
+
+  // Chiude il menu se si clicca al di fuori di esso
+  document.addEventListener('click', function(event) {
+      if (!event.target.closest('.dropdown')) {
+          document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+              dropdown.classList.remove('open');
+          });
+      }
+  });
+</script>
+<!-- Bootstrap JS (fondamentale per i dropdown) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Aggiungi gli abbellimenti visivi -->
+<style>
+  /* Per i link del menu (bianco con transizione di colore al passaggio del mouse) */
+  .dropdown-toggle {
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Effetto hover per il link principale */
+  .dropdown-toggle:hover {
+    color: #a0c1be;
+    transform: scale(1.05);
+  }
+
+  /* Personalizzazione delle voci del menu a tendina */
+  .dropdown-menu {
+    background-color: #1c3a3a;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .dropdown-item {
+    color: #ffffff;
+    font-size: 1rem;
+    padding: 12px 20px;
+    text-transform: capitalize;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Cambia colore delle voci al passaggio del mouse */
+  .dropdown-item:hover {
+    background-color: #5E7A7C;
+    color: #ffffff;
+  }
+
+  /* Aggiungi l'animazione di apertura del dropdown */
+  .dropdown-menu.show {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+
+  /* Effetto di apparizione fluido */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Dropdown per mobile (hamburger) - Navbar Mobile */
+  @media (max-width: 768px) {
+    .dropdown-menu {
+      background-color: #2c4e48;
+    }
+    .dropdown-item {
+      font-size: 1.1rem;
+    }
+  }
+
+  /* Icone dentro il menu */
+  .bi {
+    color: white;
+    transition: color 0.3s ease;
+  }
+
+  .dropdown-item i {
+    font-size: 1.2rem;
+  }
+
+  /* Icone al passaggio del mouse */
+  .dropdown-item:hover i {
+    color: #a0c1be;
+  }
+</style>
+</header>
+
+
+    <!-- Titolo della pagina -->
+    <section class="stile-header">
+        <header class="bg-black bg-opacity-50 py-3">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="container">
+                    <h1>Stile industriale</h1>
+                </div>
+    </section>
+
+ <!-- Carousello di immagini -->
+ <!DOCTYPE html>
+ <html lang="it">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Carosello di Immagini</title>
+   <style>
+     .carosello {
+       position: relative;
+       width: 100%;
+       max-width: 1300px;
+       margin: auto;
+       overflow: hidden;
+       margin-top: 150px;
+     }
+ 
+     .slide {
+       display: none;
+     }
+ 
+     img {
+       width: 100%;
+       height: auto;
+       cursor: pointer;
+     }
+ 
+     button {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       background-color: rgba(0, 0, 0, 0.5);
+       color: white;
+       border: none;
+       padding: 10px;
+       cursor: pointer;
+     }
+ 
+     .prev {
+       left: 0;
+     }
+ 
+     .next {
+       right: 0;
+     }
+ 
+     button:hover {
+       background-color: rgba(0, 0, 0, 0.8);
+     }
+ 
+   /* Stili per la visualizzazione dell'immagine a schermo intero */
+   .overlay {
+           display: none;
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: rgba(0, 0, 0, 0.9);
+           justify-content: center;
+           align-items: center;
+           z-index: 1000;
+         }
+     
+         .overlay img {
+           width: 80%;
+           height: auto;
+         }
+     
+         .close {
+           position: absolute;
+           top: 80px;
+           right: 190px;
+           background-color: rgb(83, 80, 80);
+           border: none;
+           color: black;
+           font-size: 15px;
+           padding: 15px;
+           padding-top: 15px;
+           padding-bottom: 15px;
+           cursor: pointer;
+           border-radius: 20%;
+         }
+     
+         .close:hover {
+           background-color: rgb(83, 80, 80);
+           color: white;
+         } 
+         @media screen and (max-width: 768px) {
+  .overlay img {
+    width: 95%; /* più spazio su schermi piccoli */
+  }
+
+  .close {
+    top: 150px;
+    right: 20px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10%;
+  }
+}
+   </style>
+ </head>
+ <body>
+ 
+   <!-- Carosello di immagini -->
+   <div class="carosello">
+     <div class="slide">
+       <img src="../img/CAROSELLI/cameretta-contemporanea.jpeg" alt="Immagine 1" onclick="openImage(this)">
+     </div>
+     <div class="slide">
+       <img src="../img/CAROSELLI/cameretta-industriale.jpeg" alt="Immagine 2" onclick="openImage(this)">
+     </div>
+     <div class="slide">
+       <img src="../img/CAROSELLI/cameretta-minimal.jpeg" alt="Immagine 3" onclick="openImage(this)">
+     </div>
+ 
+     <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+     <button class="next" onclick="changeSlide(1)">&#10095;</button>
+   </div>
+ 
+   <!-- Overlay per la visualizzazione dell'immagine completa -->
+   <div class="overlay" id="overlay">
+     <button class="close" onclick="closeImage()">X</button>
+     <img id="overlay-image" src="" alt="Immagine completa">
+   </div>
+ 
+   <script>
+     // Variabili per il carosello
+     let slideIndex = 0;
+     const slides = document.querySelectorAll('.slide');
+     const totalSlides = slides.length;
+ 
+     // Funzione per mostrare il carosello
+     function showSlides() {
+       for (let i = 0; i < totalSlides; i++) {
+         slides[i].style.display = "none";
+       }
+       slideIndex++;
+       if (slideIndex > totalSlides) {
+         slideIndex = 1;
+       }
+       slides[slideIndex - 1].style.display = "block";
+     }
+ 
+     // Funzione per cambiare immagine con le frecce
+     function changeSlide(n) {
+       slideIndex += n;
+       if (slideIndex > totalSlides) {
+         slideIndex = 1;
+       }
+       if (slideIndex < 1) {
+         slideIndex = totalSlides;
+       }
+       showSlides();
+     }
+ 
+     // Funzioni per aprire e chiudere l'immagine a schermo intero
+     function openImage(img) {
+       const overlay = document.getElementById('overlay');
+       const overlayImage = document.getElementById('overlay-image');
+       overlay.style.display = 'flex';
+       overlayImage.src = img.src;
+     }
+ 
+     function closeImage() {
+       const overlay = document.getElementById('overlay');
+       overlay.style.display = 'none';
+     }
+ 
+     // Avvia il carosello
+     showSlides();
+   </script>
+     
+     </body>
+     </html>
+     
+  <body>
+  
+    <script>
+      let currentSlide = 0;
+  
+      function showSlide(index) {
+        const slides = document.querySelectorAll('.slide');
+        if (index >= slides.length) currentSlide = 0;
+        if (index < 0) currentSlide = slides.length - 1;
+  
+        for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+  
+        slides[currentSlide].style.display = 'block';
+      }
+  
+      function changeSlide(n) {
+        showSlide(currentSlide += n);
+      }
+  
+      showSlide(currentSlide);
+  
+      // Aggiungi scorrimento automatico ogni 3 secondi
+      setInterval(function() {
+        changeSlide(1); // Cambia immagine avanti
+      }, 3000); // 3000 ms = 3 secondi
+    </script>
+</body>
+       
+<section class="stile-container">
+    <div class="stile-content mx-5 px-4">
+        <h2>Stile industriale</h2>
+        
+        <p>
+            Lo stile industriale nasce negli Stati Uniti negli anni 50 e 60, quando vecchie fabbriche, magazzini e loft inutilizzati vengono trasformati in abitazioni. 
+            <br><br>
+            Questa necessità si trasforma in un'estetica che celebra gli spazi grezzi e funzionali tipici dell'ambiente. L’arredamento trae ispirazione dall'aspetto crudo e funzionale degli spazi industriali.
+            <br><br>
+            Ecco alcuni degli aspetti principali che definiscono lo stile industriale:
+        </p>
+    </div>
+
+    <aside class="stile-sidebar">
+        <h3>Tendenze</h3>
+        <p>
+            Con l’ascesa dello stile industriale, il design ha saputo combinare carattere e funzionalità, esaltando materiali grezzi e strutture a vista.
+        </p>
+        <p>
+            Oggi le cucine industriali si distinguono per l’uso di metallo, legno e cemento, tonalità scure e dettagli robusti, creando ambienti dal fascino urbano e dal forte impatto visivo.
+        </p>
+    </aside>
+</section>
+<style>
+  .stile-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  .stile-content {
+    flex: 2;
+    background-color: #fafafa;
+    padding: 2rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+
+  .stile-sidebar {
+    flex: 1;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Tipografia migliorata */
+  .stile-container h2,
+  .stile-container h3 {
+    font-family: 'Georgia', serif;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+  }
+
+  .stile-container p {
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  /* Aggiunta: smooth hover se vuoi interazione */
+  .stile-content:hover {
+    background-color: #f0f0f0;
+  }
+
+  .stile-sidebar:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  /* MEDIA QUERY - Responsive */
+  @media (max-width: 768px) {
+    .stile-container {
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+    }
+
+    .stile-content,
+    .stile-sidebar {
+      width: 100%;
+      padding: 1.5rem;
+    }
+
+    .stile-content {
+      margin-bottom: 2.5rem;
+    }
+  }
+</style>
+
+
+
+
+<!-- SEZIONE: Dettagli Stile Industriale - Eleganza Grezza e Contemporanea -->
+<section class="stile-industriale-elegante">
+  <div class="contenitore-introduzione">
+    <h2>Il Fascino del Design Industriale</h2>
+    <p>Lo stile industriale unisce l’aspetto grezzo dei materiali con l’eleganza della funzionalità. Metallo, legno, mattoni a vista e dettagli minimalisti si combinano per creare ambienti moderni, fortemente caratterizzati e di grande impatto.</p>
+  </div>
+
+  <div class="contenitore-elegante">
+    <div class="dettaglio-elegante">
+      <h3>Materiali Grezzi e Naturali</h3>
+      <p>Il cemento, il metallo, il legno recuperato e i mattoni a vista sono protagonisti, creando uno stile robusto e senza tempo, ma con un tocco di classe.</p>
+    </div>
+
+    <div class="dettaglio-elegante">
+      <h3>Colori Scuri e Neutri</h3>
+      <p>Le tonalità di grigio, nero e marrone scuro dominano l’ambiente, mentre accenti metallici o in legno chiaro bilanciano il tutto, mantenendo l’aspetto visivo elegante e sofisticato.</p>
+    </div>
+
+    <div class="dettaglio-elegante">
+      <h3>Illuminazione Industriale</h3>
+      <p>La luce è un elemento fondamentale, con lampade a sospensione in metallo, faretti industriali e luci calde che esaltano l'atmosfera cruda ma raffinata dell'ambiente.</p>
+    </div>
+
+    <div class="dettaglio-elegante">
+      <h3>Arredi Minimal e Funzionali</h3>
+      <p>Gli arredi sono essenziali, realizzati con materiali durevoli e funzionali. Mobili in metallo e legno recuperato si combinano con linee semplici e pulite per non sovraccaricare lo spazio.</p>
+    </div>
+
+    <div class="dettaglio-elegante">
+      <h3>Spazi Aperti e Condivisi</h3>
+      <p>Lo stile industriale favorisce spazi ampi e aperti, con poca separazione tra le aree funzionali, creando un ambiente fluido e accogliente.</p>
+    </div>
+
+    <div class="dettaglio-elegante">
+      <h3>Dettagli Vintage e Artigianali</h3>
+      <p>Oggetti di recupero, come scaffali in metallo e arredi vintage, aggiungono carattere e personalità, mescolando il vecchio e il nuovo per un effetto unico.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CSS ELEGANTE - Stile Industriale -->
+<style>
+  /* SEZIONE PRINCIPALE - Stile industriale elegante */
+  .stile-industriale-elegante {
+    background-color: #ececec;
+    padding: 5rem 6%;
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+
+  /* INTRODUZIONE - Titolo e descrizione */
+  .contenitore-introduzione {
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .contenitore-introduzione h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .contenitore-introduzione p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* CONTAINER ELEGANTE - Griglia e dettagli */
+  .contenitore-elegante {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+  }
+
+  /* DETTAGLI - Box dei singoli elementi */
+  .dettaglio-elegante {
+    background-color: #ffffff;
+    padding: 2.2rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e1e1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Hover effetto per look sofisticato e industriale */
+  .dettaglio-elegante:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Titoli dei dettagli - Design audace e industriale */
+  .dettaglio-elegante h3 {
+    font-family: 'Georgia', serif;
+    font-size: 1.25rem;
+    color: #2c2c2c;
+    margin-bottom: 1rem;
+    border-left: 4px solid #c8a97e;
+    padding-left: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  /* Paragrafi dei dettagli - Eleganza cruda e raffinata */
+  .dettaglio-elegante p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.75;
+  }
+
+  /* Responsive Layout - Adattamento a schermi più piccoli */
+  @media (max-width: 768px) {
+    .stile-industriale-elegante {
+      padding: 3rem 1.5rem;
+    }
+
+    .contenitore-introduzione h2 {
+      font-size: 1.8rem;
+    }
+
+    .contenitore-introduzione p {
+      font-size: 1rem;
+      max-width: 100%;
+    }
+
+    .dettaglio-elegante {
+      padding: 1.8rem;
+    }
+  }
+</style>
+
+
+
+
+<!-- Sezione Ambienti -->
+<div class="ambienti mt-5">
+    <section class="container">
+        <h2>Ambienti</h2>
+
+        <!-- Card 1: Cucina Bricks -->
+        <div class="card-ambiente">
+            <div class="img-container">
+                <img src="../img/CAROSELLI/cucina-industriale.jpeg" alt="Cucina Bricks">
+            </div>
+            <div class="ambiente-info">
+                <h3>Cucina Bricks</h3>
+                <p>
+                    Una cucina industriale di grande effetto, separata da una grande vetrata con riporti neri.
+                    Eleganti piastrelle nere e bianche caratterizzano l’intera cucina, che riprende i colori del legno e del grigio.
+                </p>
+                <a href="cucinaindustriale.html" class="btn-progetto">Progetto completo →</a>
+            </div>
+        </div>
+
+        <!-- Card 2: Salotto industrial loft -->
+        <div class="card-ambiente">
+            <div class="img-container">
+                <img src="../img/CAROSELLI/salotto-industriale.jpeg" alt="Salotto industrial loft">
+            </div>
+            <div class="ambiente-info">
+                <h3>Salotto Industrial loft</h3>
+                <p>
+                    Uno spazio luminoso e colorato, con cavi, prese e tubi a vista. Protagonista, la libreria in legno e acciaio che nasconde dietro una funzionale scala per l’accesso al soppalco.
+                    Un loft di impeccabile design industriale.
+                </p>
+                <a href="salottoindustriale.html" class="btn-progetto">Progetto completo →</a>
+            </div>
+        </div>
+
+        <!-- Card 3: Sala da pranzo bistrot -->
+        <div class="card-ambiente">
+            <div class="img-container">
+                <img src="../img/CAROSELLI/saladapranzo-industriale.jpeg" alt="Sala da pranzo bistrot">
+            </div>
+            <div class="ambiente-info">
+                <h3>Sala da pranzo bistrot</h3>
+                <p>
+                    Una sala con elementi rock e metallici in cui domina il nero in contrasto con le pareti bianche della sala e un caldo parquet. 
+                    Grazie ad una comoda panca e al tavolo allungabile è possibile accogliere ospiti.
+                </p>
+                <a href="saladapranzoindustriale.html" class="btn-progetto">Progetto completo →</a>
+            </div>
+        </div>
+
+        <!-- Card 4: Camera da letto urban -->
+        <div class="card-ambiente">
+            <div class="img-container">
+                <img src="../img/CAROSELLI/camera-industriale.jpeg" alt="Camera da letto urban">
+            </div>
+            <div class="ambiente-info">
+                <h3>Camera da letto urban</h3>
+                <p>
+                    Camera da letto moderna e accogliente, caratterizzata da un’atmosfera calda e naturale. La parete principale è rivestita con pannelli effetto legno, che aggiungono un tocco rustico ma elegante.
+                </p>
+                <a href="cameraindustriale.html" class="btn-progetto">Progetto completo →</a>
+            </div>
+        </div>
+
+        <!-- Card 5: Cameretta bike -->
+        <div class="card-ambiente">
+            <div class="img-container">
+                <img src="../img/CAROSELLI/cameretta-industriale.jpeg" alt="Cameretta bike">
+            </div>
+            <div class="ambiente-info">
+                <h3>Cameretta bike</h3>
+                <p>
+                    Una cameretta soppalcata, con toni pastello. 
+                    Una parete con trama interamente dipinta a mano fa da protagonista, rendendo l’ambiente caldo e accogliente, perfetto per un neonato e comodo per i neogenitori. 
+                </p>
+                <a href="link-progetto-cameretta-industriale" class="btn-progetto">Progetto completo →</a>
+            </div>
+        </div>
+
+        <!-- Card 6: Bagno acqua e forma -->
+        <div class="card-ambiente">
+            <div class="img-container">
+                <img src="../img/CAROSELLI/bagno-industriale.jpeg" alt="Bagno acqua e forma">
+            </div>
+            <div class="ambiente-info">
+                <h3>Bagno acqua e forma</h3>
+                <p>
+                    Un bagno moderno e luminoso dotato di grande finestra sul tetto, che lascia entrare molta luce naturale. 
+                    Il design è essenziale e contemporaneo, caratterizzato da tonalità neutre e materiali raffinati. 
+                </p>
+                <a href="link-progetto-bagno-industriale" class="btn-progetto">Progetto completo →</a>
+            </div>
+        </div>
+
+    </section>
+</div>
+<style>
+  .ambienti {
+    background-color: #808080; /* Grigio più chiaro */
+    max-width: 100%;
+    padding: 60px 0;
+  }
+
+  .ambienti h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f7f7f7; /* Bianco più caldo per risaltare */
+    margin-bottom: 40px;
+  }
+
+  .ambienti-grid {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 1fr; /* Una sola colonna per ogni card */
+  }
+
+  .card-ambiente {
+    display: flex;
+    flex-direction: row; /* Immagine a sinistra e testo a destra */
+    background-color: #5c5c5c; /* Un grigio più chiaro per le card */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(155, 155, 155, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-ambiente:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  }
+
+  .img-container {
+    width: 50%; /* L'immagine occupa il 50% della larghezza */
+    overflow: hidden; /* Per evitare che l'immagine fuoriesca */
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 300px; /* Altezza fissa per l'immagine */
+    object-fit: cover;
+    border-right: 1px solid #444; /* Separatore tra immagine e testo */
+  }
+
+  .ambiente-info {
+    padding: 20px;
+    width: 50%; /* Il testo occupa il restante 50% */
+    text-align: left; /* Allineamento del testo a sinistra */
+  }
+
+  .ambiente-info h3 {
+    font-size: 1.8rem;
+    color: #e0e0e0;
+    margin-bottom: 15px;
+  }
+
+  .ambiente-info p {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 20px;
+  }
+
+  .btn-progetto {
+    padding: 10px 20px;
+    background-color: #7da39c;
+    color: #333333;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+
+  .btn-progetto:hover {
+    background-color: #678983;
+    transform: scale(1.05);
+  }
+
+  .ambiente-box img {
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.ambiente-box img.loaded {
+  opacity: 1;
+}
+
+
+  /* Layout Desktop e Tablet: Card una sotto l'altra, immagine a sinistra, testo a destra */
+  @media (min-width: 1024px) {
+    .ambienti-grid {
+      grid-template-columns: 1fr; /* Una sola colonna per le card */
+    }
+
+    .card-ambiente {
+      display: flex;
+      flex-direction: row; /* Immagine a sinistra, testo a destra */
+    }
+
+    .img-container img {
+      height: 300px;
+    }
+
+    .ambiente-info {
+      padding: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+.card-ambiente {
+  flex-direction: row; /* Immagine a sinistra, testo a destra */
+  align-items: center;
+}
+
+.img-container {
+  width: 50%; /* Occupa metà della card */
+  max-height: 250px; /* Mantiene un'altezza proporzionata */
+}
+
+.ambiente-info {
+  width: 50%; /* Il testo occuperà l'altra metà */
+  text-align: left; /* Allinea il testo a sinistra */
+  padding: 20px; /* Aggiungi padding per separare il testo dalle immagini */
+}
+
+.ambiente-info h3 {
+  font-size: 0.8rem; /* Ridurre la dimensione del titolo */
+  color: #e0e0e0; /* Colore del titolo */
+  margin-bottom: 10px; /* Distanza tra il titolo e il paragrafo */
+}
+
+.ambiente-info p {
+  font-size: 0.8rem; /* Testo descrittivo in una dimensione leggibile */
+  color: #ccc; /* Colore del testo */
+  margin-bottom: 20px; /* Margine tra il testo e il bottone */
+}
+
+.btn-progetto {
+  font-size: 0.8rem; /* Mantieni la dimensione del bottone proporzionata */
+  padding: 10px 20px;
+  background-color: #7da39c;
+  color: #333333;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+
+.btn-progetto:hover {
+  background-color: #678983;
+  transform: scale(1.05);
+}
+}
+
+</style>
+<!-- CSS per il footer -->
+<style>
+  .footer {
+    background-color: #333333;
+    color: #f7f7f7;
+    padding: 40px 0;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #f7f7f7;
+  }
+  
+  .footer-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #b0b0b0;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .footer-bottom p {
+    font-size: 1rem;
+    color: #ddd;
+  }
+  
+  .footer-bottom ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .footer-bottom ul li {
+    margin: 0;
+  }
+  
+  .footer-bottom ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-bottom ul li a:hover {
+    color: #b0b0b0;
+  }
+  </style>
+  
+  
+  
+  
+  <footer class="footer">
+    <div class="footer-container">
+        <!-- Sezione Spazi Belli -->
+        <div class="footer-section">
+            <img src="../img/logo.png" class="logo-small">
+            <ul>
+              <li><a href="privaci.html">Privacy</a></li>
+              <li><a href="termini.html">Condizioni</a></li>
+            </ul>
+        </div>
+        <!-- Sezione Esplora -->
+        <div class="footer-section">
+            <h4>GGM Design</h4>
+            <ul>
+                <li><a href="index.html"#>Chi siamo</a></li>
+            
+            </ul>
+        </div>
+           <!-- Sezione Per i professionisti -->
+  <div class="footer-section">
+  <h4>Ambienti</h4>
+  <ul class="list-unstyled m-0 p-0">
+    <li><a href="cucine.html">Cucina</a></li>
+    <li><a href="salotti.html">Soggiorno</a></li>
+    <li><a href="cameretta.html">Cameretta</a></li>
+    <li><a href="saladapranzo.html">Sala da pranzo</a></li>
+    <li><a href="camera.html">Camera da letto</a></li>
+    <li><a href="bagno.html">Bagno</a></li>
+  </ul>
+  </div>
+  
+  <!-- Sezione Per i brand -->
+  <div class="footer-section">
+  <h4>Stili</h4>
+  <ul class="list-unstyled m-0 p-0">
+    <li><a href="classico.html">Stile Classico</a></li>
+    <li><a href="contemporaneo.html">Stile Contemporaneo</a></li>
+    <li><a href="minimal.html">Stile Minimal</a></li>
+    <li><a href="industriale.html">Stile Industriale</a></li>
+  </ul>
+  </div>
+  
+  
+  <!-- CSS per il footer -->
+  <style>
+  .footer {
+  background-color: #333333;
+  color: #f7f7f7;
+  padding: 40px 0;
+  }
+  
+  .footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  }
+  
+  .footer-section {
+  flex: 1;
+  margin: 10px;
+  }
+  
+  .footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #f7f7f7;
+  }
+  
+  .footer-section ul {
+  list-style-type: none;
+  padding: 0;
+  }
+  
+  .footer-section ul li {
+  margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+  }
+  
+  .footer-section ul li a:hover {
+  color: #b0b0b0;
+  }
+  
+  .footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  }
+  
+  .footer-bottom p {
+  font-size: 1rem;
+  color: #ddd;
+  }
+  
+  .footer-bottom ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  }
+  
+  .footer-bottom ul li {
+  margin: 0;
+  }
+  
+  .footer-bottom ul li a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  }
+  
+  .footer-bottom ul li a:hover {
+  color: #b0b0b0;
+  }
+  </style>
+                
+        </div>
+    </div>
+          <div class="footer-bottom">
+              <p>&copy; 2025 GGM Design</p>
+              <ul>
+                  <li><a href="#">Instagram</a></li>
+                  <li><a href="#">TikTok</a></li>
+              </ul>
+          </div>
+      </footer>
+  
+    
+      
+  <!-- Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  
+  
+  </body>
+  
+  </html>

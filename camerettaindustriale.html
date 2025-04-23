@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Lightbox2 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+    <title>GGM Design</title>
+     
+      <style>
+        body {
+  font-family: 'Arial', cursive, sans-serif;
+  background-color: #ffffff; /* ← colore bianco */
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+      
+        body.dark-mode {
+          background-color: #926002;
+          color: #e4a42f;
+        }
+      
+        #toggle-dark-mode {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 10px 16px;
+          font-size: 1rem;
+          background-color:#e4a42f;
+          color:  #926002;
+          border: 2px solid #e4a42f;
+          border-radius: 10px;
+          cursor: pointer;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+          transition: background-color 0.3s, color 0.3s;
+        }
+      
+        #toggle-dark-mode:hover {
+          background-color: #e6f0ff;
+        }
+      
+        body.dark-mode #toggle-dark-mode {
+          background-color: #926002;
+          color: #e4b430;
+          border-color:#c2790c;
+        }
+      
+        body.dark-mode #toggle-dark-mode:hover {
+          background-color: #926002;
+        }
+      </style>
+    
+</head>
+
+
+<body>
+<!-- Header con logo e menù -->
+<header class="bg-black bg-opacity-50 py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <!-- Logo -->
+      <div>
+        <img src="/img/logo.png" alt="LOGO" class="img-fluid" style="height: 50px;">
+        
+      </div>
+  
+      <!-- Navigazione -->
+      <ul class="d-flex align-items-center m-0 list-unstyled">
+        <!-- Dropdown Ambienti -->
+        <li class="mx-3 dropdown">
+          <a href="#" class="text-decoration-none text-white dropdown-toggle"
+             id="ambientiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Ambienti
+            <!-- Icona per Ambienti -->
+            <i class="bi bi-house-door ms-2" style="font-size: 1.3rem;"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="ambientiDropdown">
+            <li><a class="dropdown-item" href="cucine.html"><i class="bi bi-house-door me-2"></i>Cucina</a></li>
+            <li><a class="dropdown-item" href="salotti.html"><i class="bi bi-house-door me-2"></i>Soggiorno</a></li>
+            <li><a class="dropdown-item" href="saladapranzo.html"><i class="bi bi-house-door me-2"></i>Sala da pranzo</a></li>
+            <li><a class="dropdown-item" href="camera.html"><i class="bi bi-house-door me-2"></i>Camera da letto</a></li>
+            <li><a class="dropdown-item" href="cameretta.html"><i class="bi bi-house-door me-2"></i>Cameretta</a></li>
+            <li><a class="dropdown-item" href="bagno.html"><i class="bi bi-house-door me-2"></i>Bagno</a></li>
+          </ul>
+        </li>
+  
+        <!-- Dropdown Stili -->
+        <li class="mx-3 dropdown">
+          <a href="#" class="text-decoration-none text-white dropdown-toggle"
+             id="stiliDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Stili
+            <!-- Icona per Stili -->
+            <i class="bi bi-paint-bucket ms-2" style="font-size: 1.3rem;"></i>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="stiliDropdown">
+            <li><a class="dropdown-item" href="classico.html"><i class="bi bi-paint-bucket me-2"></i>Stile classico</a></li>
+            <li><a class="dropdown-item" href="minimal.html"><i class="bi bi-paint-bucket me-2"></i>Stile minimal</a></li>
+            <li><a class="dropdown-item" href="industriale.html"><i class="bi bi-paint-bucket me-2"></i>Stile industriale</a></li>
+            <li><a class="dropdown-item" href="contemporaneo.html"><i class="bi bi-paint-bucket me-2"></i>Stile contemporaneo</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+ 
+ <style>
+    /* Mostra il menu a tendina quando il cursore è sopra */
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Nascondi il menu a tendina quando non è sopra il dropdown */
+    .dropdown-menu {
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    /* Opacità e visibilità per transizioni più fluide */
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #333;
+        color: white;
+        border-radius: 5px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+    }
+
+    .dropdown-item {
+        padding: 10px 20px;
+    }
+
+    .dropdown-item:hover {
+        background-color: #444;
+    }
+    
+  /* Responsive per mobile */
+  @media (max-width: 768px) {
+    .menu-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding-left: 20px;
+    }
+
+    .dropdown-toggle {
+      font-size: 20px;
+    }
+
+    .dropdown-menu {
+      position: static !important;
+      float: none;
+      box-shadow: none;
+      display: block;
+      background-color: transparent;
+      padding: 0;
+    }
+
+    .dropdown-menu a {
+      font-size: 16px;
+      color: white !important;
+      padding-left: 10px;
+      background-color: transparent;
+    }
+
+    .dropdown-menu a:hover {
+      color: black !important;
+      background-color: #ccc !important;
+    }
+  }
+</style>
+
+<!-- JavaScript per il click del menu (attiva la visibilità al click) -->
+<script>
+    // Funzionalità per aprire/chiudere il menu a tendina su click per dispositivi mobili
+    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(event) {
+            // Impedisce la chiusura immediata del menu quando si clicca dentro
+            event.stopPropagation();
+            // Aggiunge o rimuove la classe 'open' al dropdown per mostrare/nascondere il menu
+            this.classList.toggle('open');
+        });
+    });
+
+    // Chiude il menu se si clicca al di fuori di esso
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                dropdown.classList.remove('open');
+            });
+        }
+    });
+</script>
+
+<!-- JavaScript per il click del menu (attiva la visibilità al click) -->
+<script>
+    // Funzionalità per aprire/chiudere il menu a tendina su click per dispositivi mobili
+    document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(event) {
+            // Impedisce la chiusura immediata del menu quando si clicca dentro
+            event.stopPropagation();
+            // Aggiunge o rimuove la classe 'open' al dropdown per mostrare/nascondere il menu
+            this.classList.toggle('open');
+        });
+    });
+
+    // Chiude il menu se si clicca al di fuori di esso
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.dropdown')) {
+            document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+                dropdown.classList.remove('open');
+            });
+        }
+    });
+</script>
+  <!-- Bootstrap JS (fondamentale per i dropdown) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Aggiungi gli abbellimenti visivi -->
+  <style>
+    /* Per i link del menu (bianco con transizione di colore al passaggio del mouse) */
+    .dropdown-toggle {
+      color: #ffffff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+  
+    /* Effetto hover per il link principale */
+    .dropdown-toggle:hover {
+      color: #a0c1be;
+      transform: scale(1.05);
+    }
+  
+    /* Personalizzazione delle voci del menu a tendina */
+    .dropdown-menu {
+      background-color: #1c3a3a;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    .dropdown-item {
+      color: #ffffff;
+      font-size: 1rem;
+      padding: 12px 20px;
+      text-transform: capitalize;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    /* Cambia colore delle voci al passaggio del mouse */
+    .dropdown-item:hover {
+      background-color: #5E7A7C;
+      color: #ffffff;
+    }
+  
+    /* Aggiungi l'animazione di apertura del dropdown */
+    .dropdown-menu.show {
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    
+  
+    /* Effetto di apparizione fluido */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  
+    /* Dropdown per mobile (hamburger) - Navbar Mobile */
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        background-color: #2c4e48;
+      }
+      .dropdown-item {
+        font-size: 1.1rem;
+      }
+    }
+  
+    /* Icone dentro il menu */
+    .bi {
+      color: white;
+      transition: color 0.3s ease;
+    }
+  
+    .dropdown-item i {
+      font-size: 1.2rem;
+    }
+  
+    /* Icone al passaggio del mouse */
+    .dropdown-item:hover i {
+      color: #a0c1be;
+    }
+  </style>
+  
+
+    <!-- Titolo della pagina -->
+    <section class="stile-header">
+        <header class="bg-black bg-opacity-50 py-3">
+            <div class="container d-flex justify-content-between align-items-center">
+                <div class="container">
+                    <h1>Cameretta Bike</h1>
+                </div>
+    </section>
+
+    <!DOCTYPE html>
+    <html lang="it">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Carosello di Immagini</title>
+      <style>
+        .carosello {
+          position: relative;
+          width: 100%;
+          max-width: 1300px;
+          margin: auto;
+          overflow: hidden;
+          margin-top: 150px;
+        }
+    
+        .slide {
+          display: none;
+        }
+    
+        img {
+          width: 100%;
+          height: auto;
+          cursor: pointer;
+        }
+    
+        button {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: white;
+          border: none;
+          padding: 10px;
+          cursor: pointer;
+        }
+    
+        .prev {
+          left: 0;
+        }
+    
+        .next {
+          right: 0;
+        }
+    
+        button:hover {
+          background-color: rgba(0, 0, 0, 0.8);
+        }
+    
+       /* Stili per la visualizzazione dell'immagine a schermo intero */
+       .overlay {
+           display: none;
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           background-color: rgba(0, 0, 0, 0.9);
+           justify-content: center;
+           align-items: center;
+           z-index: 1000;
+         }
+     
+         .overlay img {
+           width: 80%;
+           height: auto;
+         }
+     
+         .close {
+           position: absolute;
+           top: 80px;
+           right: 190px;
+           background-color: rgb(83, 80, 80);
+           border: none;
+           color: black;
+           font-size: 15px;
+           padding: 15px;
+           padding-top: 15px;
+           padding-bottom: 15px;
+           cursor: pointer;
+           border-radius: 20%;
+         }
+     
+         .close:hover {
+           background-color: rgb(83, 80, 80);
+           color: white;
+         } 
+         @media screen and (max-width: 768px) {
+  .overlay img {
+    width: 95%; /* più spazio su schermi piccoli */
+  }
+
+  .close {
+    top: 150px;
+    right: 20px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10%;
+  }
+}
+      </style>
+    </head>
+    <body>
+    
+      <!-- Carosello di immagini -->
+      <div class="carosello">
+        <div class="slide">
+          <img src="../img/CAROSELLI/cameretta-classica.jpeg" alt="Immagine 1" onclick="openImage(this)">
+        </div>
+        <div class="slide">
+          <img src="../img/CAROSELLI/cameretta-contemporanea.jpeg" alt="Immagine 2" onclick="openImage(this)">
+        </div>
+        <div class="slide">
+          <img src="../img/CAROSELLI/cameretta-minimal.jpeg" alt="Immagine 3" onclick="openImage(this)">
+        </div>
+    
+        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+        <button class="next" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+    
+      <!-- Overlay per la visualizzazione dell'immagine completa -->
+      <div class="overlay" id="overlay">
+        <button class="close" onclick="closeImage()">X</button>
+        <img id="overlay-image" src="" alt="Immagine completa">
+      </div>
+    
+      <script>
+        // Variabili per il carosello
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+    
+        // Funzione per mostrare il carosello
+        function showSlides() {
+          for (let i = 0; i < totalSlides; i++) {
+            slides[i].style.display = "none";
+          }
+          slideIndex++;
+          if (slideIndex > totalSlides) {
+            slideIndex = 1;
+          }
+          slides[slideIndex - 1].style.display = "block";
+        }
+    
+        // Funzione per cambiare immagine con le frecce
+        function changeSlide(n) {
+          slideIndex += n;
+          if (slideIndex > totalSlides) {
+            slideIndex = 1;
+          }
+          if (slideIndex < 1) {
+            slideIndex = totalSlides;
+          }
+          showSlides();
+        }
+    
+        // Funzioni per aprire e chiudere l'immagine a schermo intero
+        function openImage(img) {
+          const overlay = document.getElementById('overlay');
+          const overlayImage = document.getElementById('overlay-image');
+          overlay.style.display = 'flex';
+          overlayImage.src = img.src;
+        }
+    
+        function closeImage() {
+          const overlay = document.getElementById('overlay');
+          overlay.style.display = 'none';
+        }
+    
+        // Avvia il carosello
+        showSlides();
+      </script>
+        
+        </body>
+        </html>
+        
+     <body>
+     
+       <script>
+         let currentSlide = 0;
+     
+         function showSlide(index) {
+           const slides = document.querySelectorAll('.slide');
+           if (index >= slides.length) currentSlide = 0;
+           if (index < 0) currentSlide = slides.length - 1;
+     
+           for (let i = 0; i < slides.length; i++) {
+             slides[i].style.display = 'none';
+           }
+     
+           slides[currentSlide].style.display = 'block';
+         }
+     
+         function changeSlide(n) {
+           showSlide(currentSlide += n);
+         }
+     
+         showSlide(currentSlide);
+     
+         // Aggiungi scorrimento automatico ogni 3 secondi
+         setInterval(function() {
+           changeSlide(1); // Cambia immagine avanti
+         }, 3000); // 3000 ms = 3 secondi
+       </script>
+
+    <!-- Sezione del Salotto Modigliani -->
+    <section class="frame-container">
+      <div class="container layout-wrapper">
+        
+        <!-- Contenuto principale -->
+        <div class="main-content">
+          <h1>Cameretta Bike</h1>
+          <p>
+            Essenziale ma accogliente, la cameretta in stile industriale combina materiali grezzi e dettagli urban con un comfort autentico e funzionale. 
+            Il design si ispira al fascino degli ambienti post-industriali, reinterpretati in chiave contemporanea per accompagnare la crescita e l’espressione individuale.
+          </p>
+          <p>
+            Pareti dai toni neutri – grigio cemento, bianco sporco o mattoni a vista – fanno da sfondo a mobili dalle linee pulite, 
+            realizzati in metallo verniciato e legno naturale, spesso con finiture effetto vissuto.
+          </p>
+          <p>
+            La struttura del letto, in ferro nero opaco o acciaio spazzolato, si abbina a una scrivania robusta con piano in legno massello e gambe in tubolare metallico, 
+            perfetta per studiare o coltivare passioni creative.
+          </p>
+    
+          <!-- Galleria immagini -->
+          <div class="gallery">
+            <a href="/img/STILE INDUSTRIALE/cameretta 1.1.jpeg" data-lightbox="bagno" data-title="immagine 1">
+              <img src="/img/STILE INDUSTRIALE/cameretta 1.1.jpeg" class="zoom-img" alt="immagine 1">
+            </a>
+            <a href="/img/STILE INDUSTRIALE/cameretta 1.jpeg" data-lightbox="bagno" data-title="immagine 2">
+              <img src="/img/STILE INDUSTRIALE/cameretta 1.jpeg" class="zoom-img" alt="immagine 2">
+            </a>
+            
+          
+          </div>
+        </div> <!-- /main-content -->
+    
+        <!-- Sidebar -->
+        <aside class="sidebar">
+          <!-- Lista Ambiente e Stile -->
+          <div class="list">
+            <div class="list-item">
+              <span>Ambiente</span>
+              <a class="list-link" href="cameretta.html">Cameretta -></a>
+            </div>
+            <div class="list-item">
+              <span>Stile</span>
+              <a class="list-link" href="industriale.html">Stile Industriale -></a>
+            </div>
+          </div>
+    
+          <!-- Box "Tendenze" -->
+          <div class="tendenze">
+            <h3>Tendenze</h3>
+            <p>L’illuminazione gioca un ruolo chiave: lampade in stile retrò, con bulbi a vista e dettagli in ottone o rame, creano atmosfere calde e suggestive.</p>
+              
+          
+          </div>
+    
+          <!-- Box "Consigli di stile" -->
+          <div class="consigliStile">
+            <h3>Consigli di stile</h3>
+            <p> Gli accessori – come scaffalature sospese, bauli vintage o elementi in pelle – aggiungono carattere e raccontano storie di autenticità./p>
+            <p>Una cameretta industrial non è solo un ambiente, ma un modo di vivere: libero, concreto, capace di evolversi nel tempo senza perdere la sua identità.
+
+
+            </p>
+            
+          </div>
+        </aside>
+      </div>
+    
+      <!-- Lightbox CSS & JS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    
+      <!-- CSS -->
+      <style>
+        body.dark-mode .frame-container {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+body.dark-mode .main-content h1,
+body.dark-mode .sidebar h3 {
+  color:  #ffffff;
+}
+
+body.dark-mode .main-content p {
+  color: #ffffff;
+}
+
+body.dark-mode .sidebar {
+  background-color:  #926002;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+}
+
+body.dark-mode .list-link {
+  color:  #f8e95e;
+}
+
+body.dark-mode .list-link:hover {
+  color: #afddd9;
+}
+
+body.dark-mode .list-item span {
+  color:  #ffffff;
+}
+
+body.dark-mode .consigliStile,
+body.dark-mode .tendenze {
+  color:  #ffffff;
+}
+.frame-container,
+.sidebar,
+.main-content {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+        .frame-container {
+          padding: 60px 20px;
+          background-color: #f9f9f9;
+          font-family: 'Helvetica Neue', sans-serif;
+          color: #333;
+        }
+    
+        .layout-wrapper {
+          display: flex;
+          gap: 40px;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+    
+        .main-content {
+          flex: 1 1 65%;
+          max-width: 65%;
+        }
+    
+        .sidebar {
+          flex: 1 1 30%;
+          max-width: 30%;
+          background-color: #ffffff;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          font-family: 'Arial', sans-serif;
+        }
+    
+        .sidebar h3 {
+          margin-top: 25px;
+          color: #444;
+        }
+    
+        .main-content h1 {
+          font-size: 2.5rem;
+          margin-bottom: 20px;
+          color: #222;
+        }
+    
+        .main-content p {
+          font-size: 1.1rem;
+          line-height: 1.7;
+          margin-bottom: 15px;
+        }
+    
+        .gallery {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
+          margin-top: 30px;
+        }
+    
+        .zoom-img {
+          width: 100%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 8px;
+          transition: transform 0.4s ease, box-shadow 0.3s ease;
+          cursor: pointer;
+        }
+    
+        .zoom-img:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .zoom-img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.zoom-img:hover {
+  transform: scale(1.05);
+}
+
+    
+        .list {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+    
+        .list-item {
+          display: flex;
+          flex-direction: column;
+        }
+    
+        .list-item span {
+          font-weight: bold;
+          font-size: 1.1rem;
+          color: #d37407;
+          margin-bottom: 8px;
+        }
+    
+        .list-link {
+          text-decoration: none;
+          color: #555;
+          font-size: 1rem;
+          transition: color 0.3s ease;
+          font-weight: bolder;
+        }
+    
+        .list-link:hover {
+          color: #000;
+          text-decoration: underline;
+        }
+    
+        /* Responsive */
+        @media (max-width: 992px) {
+          .main-content,
+          .sidebar {
+            flex: 1 1 100%;
+            max-width: 100%;
+          }
+    
+          .sidebar {
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            padding-top: 30px;
+          }
+    
+          .gallery {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+    </section>
+    
+    
+      <!-- Lightbox CSS & JS -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    </section>
+    
+
+<!-- Sezione Altri Ambienti -->
+<section class="altri-ambienti">
+  <h2>Altri ambienti in stile Industriale</h2>
+  <div class="ambienti-container">
+
+      <!-- Card 1: Camera da letto fiori di seta -->
+      <div class="ambiente-card">
+        <img src="/img/STILE INDUSTRIALE/cucina 1.3.jpeg" alt="Cucina Bricks">
+        <div class="ambiente-info">
+            <span>Cucina Bricks</span>
+            <a href="cucinaindustriale.html" class="arrow-link">→</a>
+        </div>
+    </div>
+
+    <!-- Card 2: Cucina grigio quarzo -->
+    <div class="ambiente-card">
+        <img src="/img/STILE INDUSTRIALE/cameretta 1.jpeg" alt="Camera da letto urban">
+        <div class="ambiente-info">
+            <span>Camera da letto urban</span>
+            <a href="cameraindustriale.html" class="arrow-link">→</a>
+        </div>
+    </div>
+
+    <!-- Card 3: Sala da pranzo fusion style -->
+    <div class="ambiente-card">
+        <img src="/img/STILE INDUSTRIALE/sala da pranzo 1.jpeg" alt="Sala da pranzo bistrot">
+        <div class="ambiente-info">
+            <span>Sala da pranzo bistrot</span>
+            <a href="saladapranzoindustriale.html" class="arrow-link">→</a>
+        </div>
+      </div>
+
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+  .altri-ambienti {
+      padding: 60px 20px;
+      background-color: #f8f8f8;
+      text-align: center;
+  }
+
+  .altri-ambienti h2 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 40px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 700;
+  }
+
+  .ambienti-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsività migliorata */
+      gap: 30px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+  }
+
+  .ambiente-card {
+      position: relative;
+      width: 100%;
+      max-width: 350px;
+      height: 400px; /* Altezza fissa per mantenere proporzionalità */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Centra i contenuti verticalmente */
+  }
+
+  .ambiente-card img {
+      width: 100%;
+      height: 60%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+  }
+
+  .ambiente-card:hover img {
+      transform: scale(1.05);
+  }
+
+  .ambiente-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      text-align: left;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      width: 100%; /* Imposta la larghezza al 100% della card */
+  }
+
+  .ambiente-info span {
+      font-weight: bold;
+  }
+
+  .arrow-link {
+      color: #fff;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: bold; /* Più visibile */
+  }
+
+  .arrow-link:hover {
+      color: #f1c40f;
+  }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+      .altri-ambienti h2 {
+          font-size: 1.6rem;
+      }
+
+      .ambiente-card {
+          height: 350px;
+      }
+
+      .ambiente-info {
+          font-size: 1rem;
+          padding: 10px;
+      }
+
+      .arrow-link {
+          font-size: 1.3rem;
+      }
+  }
+</style>
+
+
+
+
+<footer class="footer">
+  <div class="footer-container">
+      <!-- Sezione Spazi Belli -->
+      <div class="footer-section">
+          <img src="../img/logo.png" class="logo-small">
+          <ul>
+            <li><a href="privaci.html">Privacy</a></li>
+            <li><a href="termini.html">Condizioni</a></li>
+          </ul>
+      </div>
+      <!-- Sezione Esplora -->
+      <div class="footer-section">
+          <h4>GGM Design</h4>
+          <ul>
+              <li><a href="index.html"#>Chi siamo</a></li>
+          
+          </ul>
+      </div>
+         <!-- Sezione Per i professionisti -->
+<div class="footer-section">
+<h4>Ambienti</h4>
+<ul class="list-unstyled m-0 p-0">
+  <li><a href="cucine.html">Cucina</a></li>
+  <li><a href="salotti.html">Soggiorno</a></li>
+  <li><a href="cameretta.html">Cameretta</a></li>
+  <li><a href="saladapranzo.html">Sala da pranzo</a></li>
+  <li><a href="camera.html">Camera da letto</a></li>
+  <li><a href="bagno.html">Bagno</a></li>
+</ul>
+</div>
+
+<!-- Sezione Per i brand -->
+<div class="footer-section">
+<h4>Stili</h4>
+<ul class="list-unstyled m-0 p-0">
+  <li><a href="classico.html">Stile Classico</a></li>
+  <li><a href="contemporaneo.html">Stile Contemporaneo</a></li>
+  <li><a href="minimal.html">Stile Minimal</a></li>
+  <li><a href="industriale.html">Stile Industriale</a></li>
+</ul>
+</div>
+
+
+<!-- CSS per il footer -->
+<style>
+.footer {
+background-color: #333333;
+color: #f7f7f7;
+padding: 40px 0;
+}
+
+.footer-container {
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+}
+
+.footer-section {
+flex: 1;
+margin: 10px;
+}
+
+.footer-section h4 {
+font-size: 1.2rem;
+margin-bottom: 15px;
+color: #f7f7f7;
+}
+
+.footer-section ul {
+list-style-type: none;
+padding: 0;
+}
+
+.footer-section ul li {
+margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+color: #ddd;
+text-decoration: none;
+font-size: 1rem;
+transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+color: #b0b0b0;
+}
+
+.footer-bottom {
+text-align: center;
+margin-top: 30px;
+}
+
+.footer-bottom p {
+font-size: 1rem;
+color: #ddd;
+}
+
+.footer-bottom ul {
+list-style-type: none;
+padding: 0;
+display: flex;
+justify-content: center;
+gap: 20px;
+}
+
+.footer-bottom ul li {
+margin: 0;
+}
+
+.footer-bottom ul li a {
+color: #ddd;
+text-decoration: none;
+font-size: 1.1rem;
+transition: color 0.3s ease;
+}
+
+.footer-bottom ul li a:hover {
+color: #b0b0b0;
+}
+</style>
+              
+      </div>
+  </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 GGM Design</p>
+            <ul>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">TikTok</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <button id="toggle-dark-mode">🌓 Cambia tema</button>
+
+
+    <script>
+      const toggleButton = document.getElementById('toggle-dark-mode');
+    
+      toggleButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    </script>
+    
+<!-- Lightbox2 JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Scopri i principi dell'interior design con GGM Design. Approfondimenti, esempi visivi e risorse utili." />
+  <title>GGM Design - Scopri di più</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS (Animate on Scroll) -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #c5c5c5;
+      color: #474747;
+      line-height: 1.6;
+      transition: background 0.3s, color 0.3s;
+    }
+
+
+/* Stili per le icone social */
+.social-icons {
+  display: flex;          /* Dispone le icone in orizzontale */
+  gap: 15px;              /* Distanza tra le icone */
+  margin: 10px 0;         /* Spazio sopra e sotto */
+  justify-content: center; /* Centra le icone orizzontalmente */
+}
+
+.social-icon {
+  width: 30px;            /* Imposta la larghezza dell'icona */
+  height: 30px;           /* Imposta l'altezza dell'icona */
+  transition: transform 0.3s ease; /* Effetto di transizione per l'hover */
+}
+
+.social-icon:hover {
+  transform: scale(1.2);  /* Aumenta la dimensione dell'icona al passaggio del mouse */
+}
+
+/* Stile per i link del footer */
+.footer-links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.footer-links a {
+  text-decoration: none; /* Rimuove la sottolineatura */
+  color: #333;           /* Colore del testo */
+  margin: 0 10px;        /* Aggiunge uno spazio tra i link */
+}
+
+.footer-links a:hover {
+  color: #007bff;        /* Colore al passaggio del mouse */
+}
+
+/* Stile per il form della newsletter */
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input, form button {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+form input {
+  width: 250px; /* Imposta una larghezza per il campo email */
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #0056b3; /* Cambia colore al passaggio del mouse */
+}
+
+
+    .image-gallery {
+  display: flex;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+.image-item {
+  text-align: center;
+  width: 32%;
+ 
+}
+
+.image-item h3 {
+  font-size: 1.2rem;
+  color: #5e5e5e;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.image-item img {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.image-item img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #4b4b4b;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+
+    .logo {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #18BC9C;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    /* Hero Header */
+    header {
+      background-image: url('hero-image.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #313131;
+    }
+
+    /* Section Styles */
+    section {
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #2e2e2e;
+      margin-bottom: 20px;
+    }
+
+
+    section p,
+    section ul {
+      font-size: 1.1rem;
+      color: #4e4e4e;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    .image-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .image-gallery img {
+      width: 100%;
+      max-width: 32%;
+      flex-grow: 1;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonials {
+      display: flex;
+      gap: 30px;
+    }
+
+    .testimonial {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+
+    .testimonial p {
+      font-style: italic;
+      color: #5e5e5e;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #5e5e5e;
+    }
+
+    .footer-links {
+      margin-top: 20px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #18BC9C;
+      margin: 0 10px;
+    }
+
+    form {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    form input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      flex: 1;
+    }
+
+    form button {
+      padding: 8px 15px;
+      background-color: #18BC9C;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #1de9b6;
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #4b4b4b;
+      width: 100%;
+      list-style: none;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* Dark Mode */
+    .dark-mode {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    .dark-mode header,
+    .dark-mode .navbar {
+      background-color: #121212;
+    }
+
+    .dark-mode section h2,
+    .dark-mode a {
+      color: #64ffda;
+    }
+
+    .dark-mode a:hover {
+      color: #1de9b6;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">GGM Design</a>
+      <ul class="nav-links">
+        <li><a href="#interior-design">Cos'è</a></li>
+        <li><a href="#elementi">Elementi</a></li>
+        <li><a href="#principi">Principi</a></li>
+        <li><a href="#approfondimenti">Risorse</a></li>
+        <li><a href="#servizi">Servizi</a></li>
+      </ul>
+      <button id="theme-toggle" title="Cambia tema">🌓</button>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header data-aos="fade-down">
+    <h1>Benvenuto in GGM Design</h1>
+    <p>La tua guida all'interior design</p>
+  </header>
+
+  <main class="container">
+
+    <section id="interior-design" data-aos="fade-up">
+      <h2>Cos'è l'Interior Design?</h2>
+      <p>L'Interior Design è l'arte e la scienza di progettare e migliorare gli spazi interni di un edificio. 
+        L'obiettivo principale è creare ambienti che siano esteticamente piacevoli, funzionali, sicuri e che rispondano alle esigenze di chi li vive. 
+        Gli interior designer combinano elementi di architettura, arredamento, illuminazione, colori e materiali per progettare spazi che non solo riflettano la personalità e lo stile dei proprietari, 
+        ma che siano anche confortevoli, pratici e ottimizzati per l'uso quotidiano.</p>
+    </section>
+
+    <section id="elementi" data-aos="fade-up">
+      <h2>Gli Elementi Fondamentali</h2>
+      <ul>
+        <li><strong>Colori:</strong> influenzano l'umore e l'atmosfera dell'ambiente.</li>
+        <li><strong>Materiali:</strong> scelta di superfici e tessuti.</li>
+        <li><strong>Illuminazione:</strong> per l'atmosfera e la funzionalità.</li>
+        <li><strong>Arredi:</strong> mobili estetici e funzionali.</li>
+        <li><strong>Accessori:</strong> dettagli che completano l'ambiente.</li>
+      </ul>
+    </section>
+
+    <section id="servizi" data-aos="fade-up">
+      <h2>I Nostri Servizi</h2>
+      <ul>
+        <li><strong>Consulenze Personalizzate:</strong> Aiutiamo a scegliere gli arredi perfetti per ogni spazio.</li>
+        <li><strong>Progettazione 3D:</strong> Visualizza il progetto prima di realizzarlo.</li>
+        <li><strong>Ristrutturazioni e Restyling:</strong> Rinnoviamo gli ambienti per migliorarne funzionalità e bellezza.</li>
+      </ul>
+    </section>
+
+    <section id="principi" data-aos="fade-up">
+      <h2>I Principi dell'Interior Design</h2>
+      <ul>
+        <li><strong>Equilibrio</strong></li>
+        <li><strong>Armonia</strong></li>
+        <li><strong>Ritmo</strong></li>
+        <li><strong>Proporzione e Scala</strong></li>
+        <li><strong>Enfasi</strong></li>
+        <li><strong>Contrasto</strong></li>
+        <li><strong>Dettagli</strong></li>
+      </ul>
+    </section>
+
+    <section data-aos="fade-up">
+        <h2>La Moodboard: Uno Strumento Creativo</h2>
+        <p>Una moodboard (o tavola di ispirazione) è uno strumento visivo utilizzato per raccogliere idee, colori, immagini, materiali, texture e concetti che riflettono l'atmosfera o il "mood" di un progetto. 
+            È una sorta di collage che aiuta a visualizzare e definire il concetto o lo stile da seguire, prima di passare alla realizzazione concreta di un progetto. 
+            È un elemento fondamentale in diversi ambiti creativi, come il design d'interni, la moda, il graphic design, la fotografia e anche il branding.</p>
+
+          <p>La moodboard creativa è particolarmente utile per comunicare visivamente l'idea che un designer ha in mente, sia al cliente che ai membri del team di progetto. 
+          Questo strumento consente di raccogliere ispirazioni e di dare una direzione chiara a ciò che si intende creare, senza affidarsi solo alla parola.</p>
+        <div class="image-gallery">
+          <div class="image-item">
+            <h3>Moodboard Calda</h3>
+            <img src="/img/moodboard calda.jpg" alt="Moodboard calda">
+          </div>
+          
+          <div class="image-item">
+            <h3>Moodboard Neutra</h3>
+            <img src="/img/Moodboard NEUTRA.jpg" alt="Moodboard neutra">
+          </div>
+          
+          <div class="image-item">
+            <h3>Moodboard Fredda</h3>
+            <img src="/img/Moodboard Fredda.jpg" alt="Moodboard fredda">
+          </div>
+        </div>
+      </section>
+      
+
+    <section data-aos="fade-up">
+      <h2>Chi Sono gli Interior Designer?</h2>
+      <p>Gli interior designer sono esperti nel trasformare gli spazi interni in luoghi che siano visivamente attraenti e adatti alla vita quotidiana. 
+        La loro formazione può variare, ma solitamente include studi in architettura d'interni, design d'interni o discipline simili. 
+        A differenza degli architetti, che si concentrano principalmente sulla struttura degli edifici, 
+        gli interior designer si focalizzano sull'aspetto interno degli spazi, come l’arredamento, i colori, le finiture e la disposizione.</p>
+
+        <p> Quando cerchi un interior designer, è importante prendere in considerazione i seguenti fattori:
+        <ul>
+            <li><strong>Portfolio: Esamina i progetti passati per vedere se lo stile del designer corrisponde a quello che desideri.</strong></li>
+            <li><strong>Esperienza: Assicurati che abbiano esperienza nel tipo di progetto che intendi realizzare (ad esempio, residenziale o commerciale).</strong></li>
+            <li><strong>Budget: Chiedi se il loro lavoro si adatta al tuo budget.</strong></li>
+            <li><strong>Comunicazione: Un buon interior designer dovrebbe essere in grado di ascoltare le tue esigenze e tradurle in soluzioni pratiche.</strong></li>
+            <li><strong>Recensioni e referenze: Verifica le recensioni dei clienti precedenti o chiedi referenze dirette.</strong></li>
+            
+          </ul>
+        </p>
+
+    </section>
+
+    <section id="testimonianze" data-aos="fade-up">
+      <h2>Cosa Dicono i Nostri Clienti</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"GGM Design ha trasformato la nostra casa in un ambiente elegante e funzionale. Consigliatissimi!"</p>
+          <span>- Marco e Sara</span>
+        </div>
+        <div class="testimonial">
+          <p>"Professionisti nel creare soluzioni su misura. La nostra azienda ora ha uno spazio di lavoro che riflette davvero i nostri valori!"</p>
+          <span>- Roberto, CEO</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="approfondimenti" data-aos="fade-up">
+      <h2>Approfondimenti e Risorse</h2>
+      <ul>
+        <li><a href="https://www.templatemonster.com/it/category/interior-design-html-website-templates/" target="_blank">TemplateMonster - Modelli di siti web</a></li>
+        <li><a href="https://www.begindot.com/it/migliori" target="_blank">BeginDot - Risorse per designer</a></li>
+      </ul>
+      <a href="/html/index.html" class="go-top">↑ Torna alla home</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 GGM Design. Tutti i diritti riservati.</p>
+    
+    <!-- Icone social -->
+    <div class="social-icons">
+      <a href="#" target="_blank"><img src="/img/icons8-facebook (1).svg" alt="Facebook" class="social-icon"></a>
+      <a href="#" target="_blank"><img src="/img/icons8-instagram (1).svg" alt="Instagram" class="social-icon"></a>
+      <a href="#" target="_blank"><img src="/img/icons8-linkedin (1).svg" alt="LinkedIn" class="social-icon"></a>
+      <a href="#" target="_blank"><img src="/img/icons8-twitter (1).svg" alt="Twitter" class="social-icon"></a>
+    </div>
+    
+    <!-- Link Footer -->
+    <div class="footer-links">
+      <a href="#about-us">Chi Siamo</a> | 
+      <a href="#contact-us">Contatti</a> | 
+      <li><a href="privaci.html">Privacy</a></li>
+      <li><a href="termini.html">Condizioni</a></li>
+    </div>
+  
+    <!-- Form Newsletter -->
+    <form action="#">
+      <label for="newsletter-email">Iscriviti alla Newsletter:</label>
+      <input type="email" id="newsletter-email" placeholder="Inserisci la tua email" required>
+      <button type="submit">Iscriviti</button>
+    </form>
+  </footer>
+  
+
+  <!-- JS AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+
+    // Toggle dark mode
+    const themeToggleButton = document.getElementById('theme-toggle');
+    themeToggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
