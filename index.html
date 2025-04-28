@@ -41,12 +41,10 @@
           </ul>
         </li>
   
-        <!-- Dropdown Stili -->
         <li class="mx-3 dropdown">
           <a href="#" class="text-decoration-none text-white dropdown-toggle"
              id="stiliDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Stili
-            <!-- Icona per Stili -->
             <i class="bi bi-paint-bucket ms-2" style="font-size: 1.3rem;"></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="stiliDropdown">
@@ -940,6 +938,9 @@
     .img-container {
       width: 50%; /* L'immagine occupa il 50% della larghezza */
       overflow: hidden; /* Per evitare che l'immagine fuoriesca */
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
     }
   
     .img-container img {
@@ -947,6 +948,7 @@
       height: 300px; /* Altezza fissa per l'immagine */
       object-fit: cover;
       border-right: 1px solid #444; /* Separatore tra immagine e testo */
+      border-radius: 20p;
     }
   
     .ambiente-info {
